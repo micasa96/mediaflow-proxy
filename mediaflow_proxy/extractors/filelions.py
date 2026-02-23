@@ -18,7 +18,7 @@ class FileLionsExtractor(BaseExtractor):
             "Sec-Fetch-Mode": "cors",
             "Sec-Fetch-Site": "same-origin"
         }
-        
+
         patterns = [
             r"""["'](?:hls\d*|source|file)["']\s*:\s*["']([^"']*(?:\.m3u8|\.hls)[^"']*)["']""",
             r"""sources:\s*\[{file:\s*["']([^"']+)["']""",
@@ -28,9 +28,8 @@ class FileLionsExtractor(BaseExtractor):
 
         final_url = await eval_solver(self, url, headers, patterns)
 
-    
         self.base_headers["referer"] = url
-        
+
         return {
             "destination_url": final_url,
             "request_headers": self.base_headers,
