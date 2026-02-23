@@ -19,4 +19,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.iomicasa96/mediaflow-proxy:latest
+          tags: ghcr.iomicasa96/mediaflow-proxy:latest 
