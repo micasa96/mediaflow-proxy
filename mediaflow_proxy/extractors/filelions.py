@@ -16,7 +16,7 @@ class FileLionsExtractor(BaseExtractor):
             "Referer": url,
             "Sec-Fetch-Dest": "empty",
             "Sec-Fetch-Mode": "cors",
-            "Sec-Fetch-Site": "same-origin"
+            "Sec-Fetch-Site": "same-origin",
         }
 
         patterns = [
