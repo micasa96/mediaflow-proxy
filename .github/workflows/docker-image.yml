@@ -1,7 +1,7 @@
 name: Build and Push Docker Image
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,4 +19,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.iomicasa96/mediaflow-proxy:latest 
+          tags: ghcr.io/micasa96/mediaflow-proxy:latest
+
