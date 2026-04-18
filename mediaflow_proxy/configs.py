@@ -75,9 +75,10 @@ class Settings(BaseSettings):
     remux_to_ts: bool = False  # Remux fMP4 segments to MPEG-TS for ExoPlayer/VLC compatibility.
     processed_segment_cache_ttl: int = 60  # TTL (seconds) for caching processed (decrypted/remuxed) segments.
 
-    # FlareSolverr settings (for Cloudflare bypass)
-    flaresolverr_url: str | None = None  # FlareSolverr service URL. Example: http://localhost:8191
-    flaresolverr_timeout: int = 60  # Timeout (seconds) for FlareSolverr requests.
+    # Byparr settings — Firefox/Camoufox-based solver for Cloudflare bypass and chevy IP whitelist.
+    # https://github.com/ThePhaseless/Byparr  (drop-in FlareSolverr-compatible API)
+    byparr_url: str | None = None  # Byparr service URL. Example: http://localhost:8192
+    byparr_timeout: int = 60  # Timeout (seconds) for Byparr requests.
 
     # Acestream settings
     enable_acestream: bool = False  # Whether to enable Acestream proxy support.
@@ -112,6 +113,9 @@ class Settings(BaseSettings):
     upstream_retry_attempts: int = 2  # Number of retry attempts when upstream disconnects during streaming.
     upstream_retry_delay: float = 1.0  # Delay (seconds) between retry attempts.
     graceful_stream_end: bool = True  # Return valid empty playlist instead of error when upstream fails.
+
+    # EPG proxy settings
+    epg_cache_ttl: int = 3600  # TTL (seconds) for cached EPG/XMLTV data. Default 1 hour.
 
     # Redis settings
     redis_url: str | None = None  # Redis URL for distributed locking and caching. None = disabled.

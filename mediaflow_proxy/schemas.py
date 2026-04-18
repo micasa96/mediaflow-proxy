@@ -263,6 +263,10 @@ class MPDSegmentParams(GenericParams):
         False,
         description="Whether EXT-X-MAP is used (init sent separately). If true, don't concatenate init with segment.",
     )
+    segment_range: Optional[str] = Field(
+        None,
+        description="Byte range for the media segment (e.g. '658-'). Used for SegmentBase MPDs where init and segment share the same file.",
+    )
 
 
 class MPDInitParams(GenericParams):
@@ -280,6 +284,7 @@ class MPDInitParams(GenericParams):
 
 class ExtractorURLParams(GenericParams):
     host: Literal[
+        "City",
         "Doodstream",
         "FileLions",
         "FileMoon",
@@ -295,13 +300,14 @@ class ExtractorURLParams(GenericParams):
         "Maxstream",
         "LiveTV",
         "LuluStream",
-        "DLHD",
         "Fastream",
         "TurboVidPlay",
         "Vidmoly",
         "Vidoza",
         "Voe",
         "Sportsonline",
+        "Vavoo",
+        "VidFast",
     ] = Field(..., description="The host to extract the URL from.")
     destination: Annotated[str, Field(description="The URL of the stream.", alias="d")]
     redirect_stream: bool = Field(False, description="Whether to redirect to the stream endpoint automatically.")
